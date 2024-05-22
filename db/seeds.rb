@@ -7,3 +7,22 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
+#set locale config for Faker
+Faker::Config.locale = 'da-DK'
+Faker::PhoneNumber.country_code
+
+p '============Enter in Faker================='
+
+Restaurant.destroy_all
+10.times do
+  restaurant = Restaurant.new(
+    name: Faker::Creature::Bird.common_family_name,
+    address: Faker::Locations::Australia.location,
+    category: Restaurant::CAT_REST.sample,
+    phone_number: Faker::PhoneNumber.cell_phone_with_country_code
+  )
+  restaurant.save!
+end
+
+p '============STOP Faker================='
