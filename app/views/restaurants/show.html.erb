@@ -5,7 +5,7 @@
 <p><%= @restaurant.phone_number %></p>
 
 <p><strong>Reviews</strong></p>
-<p class="btn btn-primary p-2 text-white"><%= link_to "➕ Add review", new_restaurant_review_path(@restaurant) %></p>
+<p class="btn btn-primary"><%= link_to "➕ Add review", new_restaurant_review_path(@restaurant), class: "text-white text-decoration-none" %></p>
 <ul class="list-group mb-2">
   <% @restaurant.reviews.each do |review| %>
   <li class="list-group-item d-flex justify-content-between"><div class="d-inline w-50"><%= review.rating %> // <%= review.content %></div><%= link_to "🗑️", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
